@@ -1,0 +1,29 @@
+<div class="d-flex flex-column justify-content-centre align-items-center mt-5">
+    <p class="h1 mt-3">Add New Product</p>
+    <form class="mb-5" @submit.prevent="addData">
+        <label>Product Details</label>
+        <div class="d-flex">    
+            <input  v-model="newProduct.name" class="form-control" type="text" placeholder="Product Name">
+            <input v-model.number="newProduct.price" class="form-control" type="text" placeholder="Product Price">
+        </div>
+        <label>Image Details</label>
+        <input v-model="newProduct.url" class="form-control" type="text" placeholder="Product Image url">
+        <div class="form-group">
+            <label>Product Details</label>
+            <textarea v-model="newProduct.details" class="form-control" rows="3"></textarea>
+        </div>
+        <div class="d-flex flex-column align-items-end">
+            <button  class="btn btn-primary mt-3">Add Product</button>
+        </div>
+    </form>
+    <router-link to="/productList">
+        <button  type="submit" class="btn btn-secondary btn-sm ">
+            <span class="glyphicon glyphicon-plus"></span> 
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"/>
+            </svg>
+            productList 
+        </button>
+    </router-link>
+</div>
+<Toast  ref="toastComponent"  headline="Adding new Product" time='3' :message="toastMessage" />

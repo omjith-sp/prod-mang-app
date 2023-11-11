@@ -1,0 +1,32 @@
+<div class="product_list_container">
+    <HeaderCompnent @search-Query="handleSearch"/>
+    <div class="container  container-lg d-flex flex-wrap  align-items-flex-start card-container">
+        <!-- <button @click="addDummyData">Add Dummy Data</button> -->
+        <!-- <button @click="deleteLastData">Delete Last Data</button> -->
+        <div v-for="product in products" :key="product.id">
+            <CardComponent :name='product.name' :price='product.price'
+            :details="product.details"
+            :imageSrc="product.url"
+            @edit-card="cardHandler(product.id, 'edit')"
+            @delete-card="cardHandler(product.id, 'delete')"/>
+        </div>
+    </div>
+    <Popup
+    v-if="showDeletePopup"
+    type="delete"
+    :showPopup="showDeletePopup "
+    headline="Delete"
+    :message="popupMessage"
+    @confirm-delete="cardHandler(selectedCardId,'confirm-delete')"
+    @close-popup="closePopup()"
+    />
+    <Popup
+    v-if="showEditPopup"
+    type="edit"
+    :showPopup="showEditPopup "
+    headline="Editing"
+    :editProduct="editProductData"
+    @confirm-edit="handleConfirmEdit"
+    @close-popup="closePopup()"/>
+    <Toast  ref="toastComponent"  :headline="toastHeadline" time='2' :message="toastMessage" />
+</div>
