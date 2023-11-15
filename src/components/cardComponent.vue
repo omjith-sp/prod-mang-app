@@ -8,10 +8,8 @@
 
       <p class="card-text">{{ details }}</p>
       <div>
-        <!-- <a @click="editCard() " class="btn btn-primary">edit</a>
-        <a @click="deleteCard() " class="btn btn-primary">delete</a> -->
-        <a @click="this.$emit('edit-card')" class="btn btn-primary me-md-3">edit</a>
-        <a @click="this.$emit('delete-card')" class="btn btn-primary">delete</a> 
+        <a @click="this.$emit('edit-card')" class="btn btn-primary me-md-3" data-action="edit">edit</a>
+        <a @click="this.$emit('delete-card')" class="btn btn-primary" data-action="delete">delete</a>
       </div>
     </div>
   </div>
@@ -26,12 +24,6 @@ export default {
     imageSrc: String 
   },
   methods: {
-    // editCard() {
-    //   this.$emit('edit-card');
-    // },
-    // deleteCard() {
-    //   this.$emit('delete-card');
-    // },
   },
 }
 </script>

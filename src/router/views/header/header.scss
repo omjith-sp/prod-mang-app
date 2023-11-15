@@ -4,4 +4,20 @@
     .searchBar{
         height: 100%;
     }
+    .radioContainer{
+        .volume-slider{
+            width:100px;
+            input{
+                transition: all 0.4s;
+                width:10px;
+                visibility: hidden;
+            }
+            &:hover{
+                input{
+                    width:80px;
+                    visibility: visible;
+                }
+            }
+        }
+    }
 }
